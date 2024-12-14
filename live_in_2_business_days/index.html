@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>live</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #18181b;
+      color: white;
+      font-family: Arial, sans-serif;
+      font-size: 2rem;
+      text-align: center;
+      flex-direction: column;
+    }
+    #timer {
+      white-space: pre-line;
+    }
+    #live-image {
+      margin-top: 20px;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div id="timer">loading...</div>
+
+  <script>
+    const duration = 2 * 24 * 60 * 60;
+    let remainingTime = duration;
+
+    function formatTime(seconds) {
+      const hours = Math.floor(seconds / 3600);
+      const minutes = Math.floor((seconds % 3600) / 60);
+      const secs = seconds % 60;
+
+      return `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
+    }
+
+    function updateTimer() {
+      const timerElement = document.getElementById('timer');
+      const formattedTime = formatTime(remainingTime);
+
+      timerElement.textContent = `you will live in\n${formattedTime}`;
+      document.title = `live in ${formattedTime}`;
+
+      if (remainingTime > 0) {
+        remainingTime--;
+        setTimeout(updateTimer, 1000);
+      } else {
+        timerElement.textContent = "congrats you are live 🎉";
+        document.title = "you are live";
+
+        const imageElement = document.createElement('img');
+        imageElement.id = 'live-image';
+        imageElement.src = 'yay.png';
+        imageElement.alt = 'yay';
+        imageElement.style.display = 'block';
+        document.body.appendChild(imageElement);
+
+        const audio = new Audio('yay.mp3');
+        audio.play();
+      }
+    }
+
+    updateTimer();
+  </script>
+</body>
+</html>

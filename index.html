@@ -77,7 +77,7 @@
             }
 
         .spacer {
-            height: 100vh;
+            height: 50vh;
         }
 
         .wheel-container {
@@ -157,56 +157,56 @@
 
     <main>
         <p>
-            Heyo this is my cool and awesome website, I'll probably just put random stuff I make here blah blah blah stop reading text you NERD
+            Heyo this is my cool and awesome website, I'll probably just put random stuff I make here blah blah blah stop reading text you NERD!!<br /><div class="spacer"></div>btw im redesigning the website rn so sorry that the other pages arent as glorious as this one, still a WIP yknow
         </p>
 
-        <div class="spacer"></div>
-        <div class="spacer"></div>
-        <div style="height: 50vh;"></div>
+            <div class="spacer"></div>
+            <div class="spacer"></div>
+            <div style="height: 50vh;"></div>
+            
+            <div class="wheel-container">
+                <a href="https://thelordylord.com/wheel">
+                    <button>Wheel O' Melee</button>
+                </a>
+                <p>this is for a game ignore it..</p>
+            </div>
+        </main>
 
-        <div class="wheel-container">
-            <a href="https://thelordylord.com/wheel">
-                <button>Wheel O' Melee</button>
-            </a>
-            <p>this is for a game ignore it..</p>
+        <div class="cat-container" id="catButton" onclick="catClicked()">
+            <img src="catr.gif" alt="place him on your site immediately" id="catImg" class="cat-gif" />
+            <span class="cat-text">Ok done<br>-Lordy Lord</span>
         </div>
-    </main>
 
-    <div class="cat-container" id="catButton" onclick="catClicked()">
-        <img src="catr.gif" alt="place him on your site immediately" id="catImg" class="cat-gif" />
-        <span class="cat-text">Ok done<br>-Lordy Lord</span>
-    </div>
+        <audio id="maowSound" src="maow.mp3" preload="auto"></audio>
 
-    <audio id="maowSound" src="maow.mp3" preload="auto"></audio>
+        <footer>
+            &copy; 2025 LordyLord. All Rights Revoked, L.
+        </footer>
 
-    <footer>
-        &copy; 2025 LordyLord. All Rights Revoked, L.
-    </footer>
+        <script>
+            const button = document.getElementById('catButton');
+            const img = document.getElementById('catImg');
+            const audio = document.getElementById('maowSound');
 
-    <script>
-        const button = document.getElementById('catButton');
-        const img = document.getElementById('catImg');
-        const audio = document.getElementById('maowSound');
+            if (sessionStorage.getItem('catClicked') === 'true') {
+                button.classList.add('faded');
+                img.src = 'catmaow.gif';
+                button.style.pointerEvents = 'none';
+            }
 
-        if (sessionStorage.getItem('catClicked') === 'true') {
-            button.classList.add('faded');
-            img.src = 'catmaow.gif';
-            button.style.pointerEvents = 'none';
-        }
+            function catClicked() {
+                if (sessionStorage.getItem('catClicked') === 'true') return;
 
-        function catClicked() {
-            if (sessionStorage.getItem('catClicked') === 'true') return;
+                sessionStorage.setItem('catClicked', 'true');
 
-            sessionStorage.setItem('catClicked', 'true');
+                audio.play().catch(err => {
+                    console.warn("Audio failed to play:", err);
+                });
 
-            audio.play().catch(err => {
-                console.warn("Audio failed to play:", err);
-            });
+                img.src = 'catmaow.gif';
+                button.classList.add('faded');
+            }
+        </script>
 
-            img.src = 'catmaow.gif';
-            button.classList.add('faded');
-        }
-    </script>
-
-</body>
-</html>
+    </body>
+    </html>

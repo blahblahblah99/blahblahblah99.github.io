@@ -180,6 +180,18 @@ body.fish-page {
     position: relative;
 }
 
+.snatch-container {
+    position: absolute;   /* overlay on the page */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.snatch-img {
+    width: 300px;  /* adjust as needed */
+    height: auto;
+}
+
 body.fish-page a { position: absolute; top: 10px; left: 10px; }
 body.fish-page a button { font-size: 16px; } /* all other button styles inherited */
 body.fish-page img { width: 75%; height: auto; }
@@ -225,6 +237,51 @@ body.project-detail-page {
 .projects-list a button:hover,
 .download-button:hover {
     background-color: #5a5a5a;
+}
+
+.projects-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.project-card {
+    display: flex;
+    flex-direction: column; /* keep text below image */
+    width: 500px;           /* wider card for banner images */
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    background-color: #1e1e1e;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    text-decoration: none;
+    color: inherit;
+}
+
+.project-card img {
+    width: 100%;    /* full width of the card */
+    height: 300px;  /* shorter than before, more banner-like */
+    object-fit: cover; /* crops nicely if image too tall */
+}
+
+.project-card .project-name {
+    background-color: #3a3a3a;
+    padding: 0.8rem;
+    text-align: center;  /* center the text inside the bar */
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+
+.projects-list a {
+    text-decoration: none; /* removes underline */
+    color: inherit;         /* keeps text white like your card text */
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.4);
 }
 
 /* ==========================

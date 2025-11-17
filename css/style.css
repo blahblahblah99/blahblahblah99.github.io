@@ -1,0 +1,234 @@
+/* ==========================
+   Root Variables
+   ========================== */
+:root {
+    --bg-color: #2e2e2e;
+    --navbar-color: #1a1a1a;
+    --button-bg: #3a3a3a;
+    --button-hover: #5a5a5a;
+    --text-primary: #f2f2f2;
+    --text-secondary: #b0b0b0;
+    --highlight: #999999;
+    --divider: #444444;
+}
+
+/* ==========================
+   Global Styles
+   ========================== */
+body {
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    font-family: Arial, sans-serif;
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header */
+header {
+    background-color: var(--navbar-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    position: sticky;
+    top: 0;
+    z-index: 50;
+}
+
+header h1 {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+/* Navigation buttons */
+nav {
+    display: flex;
+    gap: 1rem;
+}
+
+nav button {
+    background-color: var(--button-bg);
+    color: var(--text-primary);
+    padding: 0.8rem 4rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+}
+
+nav button:hover {
+    background-color: var(--button-hover);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 1rem;
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    margin-top: auto;
+}
+
+/* ==========================
+   Main Content
+   ========================== */
+main {
+    flex-grow: 1;
+    padding: 2rem;
+    text-align: center;
+}
+
+/* Homepage specific */
+body.home-page main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+body.home-page main p {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin-bottom: 2rem;
+}
+
+/* Wheel Container */
+.wheel-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin: 2rem 0 -5rem auto;
+}
+
+.wheel-container button {
+    background-color: var(--button-bg);
+    color: var(--text-primary);
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.wheel-container button:hover {
+    background-color: var(--button-hover);
+}
+
+.wheel-container p {
+    color: var(--text-secondary);
+    font-style: italic;
+    font-size: 0.875rem;
+    margin-top: 0.5rem;
+}
+
+/* Cat widget */
+.cat-container {
+    display: flex;
+    align-items: center;
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    gap: 10px;
+    cursor: pointer;
+    transition: opacity 2s ease;
+}
+
+.cat-container.faded {
+    opacity: 0;
+    pointer-events: none;
+    cursor: default;
+}
+
+.cat-text {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    white-space: pre-line;
+}
+
+.cat-gif {
+    width: 125px;
+    height: auto;
+}
+
+/* ==========================
+   Page-specific Body Overrides
+   ========================== */
+body.live-page,
+body.fish-page,
+body.die-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+body.live-page {
+    background-color: #18181b;
+    color: white;
+    font-size: 2rem;
+    text-align: center;
+    flex-direction: column;
+}
+
+#timer { white-space: pre-line; }
+#live-image { margin-top: 20px; display: none; }
+
+body.fish-page {
+    background-color: #18181b;
+    position: relative;
+}
+
+body.fish-page a { position: absolute; top: 10px; left: 10px; }
+body.fish-page a button { font-size: 16px; } /* all other button styles inherited */
+body.fish-page img { width: 75%; height: auto; }
+
+body.die-page img { width: 50%; height: auto; }
+
+/* ==========================
+   Projects Page
+   ========================== */
+body.projects-page,
+body.project-detail-page {
+    background-color: #2e2e2e;
+    color: #f2f2f2;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Project list */
+.projects-list {
+    display: flex;
+    justify-content: left;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+}
+
+.projects-list a button,
+.download-button {
+    background-color: #3a3a3a;
+    color: #f2f2f2;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+    white-space: nowrap;
+}
+
+.projects-list a button:hover,
+.download-button:hover {
+    background-color: #5a5a5a;
+}
+
+/* ==========================
+   Misc / Overrides
+   ========================== */
+iframe { border: none; max-width: 90vw; }
+.spacer { height: 50vh; }
